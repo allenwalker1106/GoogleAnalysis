@@ -40,6 +40,7 @@ class SearchBar extends React.Component{
             .then(response=>response.json())
             .then(response=>{
                 this.props.setSearchByTagResult(response)
+                // console.log(response)
             }).catch(err=>{
                 console.log(err);
             });
@@ -48,6 +49,7 @@ class SearchBar extends React.Component{
             .then(response=>response.json())
             .then(response=>{
                 this.props.setSearchByKeywordResult(response)
+                // console.log(response)
             }).catch(err=>{
                 console.log(err);
             });
@@ -57,7 +59,6 @@ class SearchBar extends React.Component{
             .then(response=>{
                 this.setState({response_data:response});
                 this.props.setPredictTag(this.state.response_data)
-                // console.log(response)
             }).catch(err=>{
                 console.log(err);
             });
@@ -119,20 +120,18 @@ class SearchBar extends React.Component{
 
     render(){
         return(
-            <div>
-            <form>
-
-                <div>
-                    <input type='text' name='thread_code' placeholder='Search ....' onChange={this.handleChange} value={this.state.thread_code}></input>
-                    <button  name='search_button' onClick={this.handleSubmit}>Click me</button>
+            <div className='search_bar'>
+                <div >
+                    <input className="search_input" type='text' name='thread_code' placeholder='Search ....' onChange={this.handleChange} value={this.state.thread_code}></input>
+                    <button className="controls search_btn" name='search_button' onClick={this.handleSubmit} type="submit" >Search</button>
                 </div>
                 <div>
-                    <input type='date' name='start_date' onChange={this.handleChange} value={this.state.start_date}></input>
-                    <input type='date' name='end_date' onChange={this.handleChange} value={this.state.end_date}></input>
+                    <input className='date_input' type='date' name='start_date' onChange={this.handleChange} value={this.state.start_date}></input>
+                    <input className='date_input' type='date' name='end_date' onChange={this.handleChange} value={this.state.end_date}></input>
                 </div>
-            </form>
             </div>
-        )
+
+        );
     }
 }
 

@@ -121,7 +121,7 @@ class WebParser(HTMLParser):
         str_data = str_data.strip().replace('\n',' ')
         str_data = re.sub(r'\s+',' ',str_data)
         if(len(str_data)>2):
-            self.str_comment +=str_data+' '
+            self.str_comment +=str_data+''
         if(self.bool_debugMode):
             self.writeLog('=========handleDivData=========') 
             self.writeLog('Input name:')
@@ -179,7 +179,7 @@ class WebParser(HTMLParser):
 
     def handleStartTopic(self,arr_attribute):
         for attribute in arr_attribute:
-            if(attribute[0]=='class' and attribute[1]=='KPwZRb'):
+            if(attribute[0]=='class' and attribute[1]=='KPwZRb gKR4Fb'):
                 self.bool_inTopicSection = True
             if(self.bool_inTopicSection):
                 self.int_topicSectionCounter +=1
@@ -188,7 +188,7 @@ class WebParser(HTMLParser):
     def handleEndTopic(self):
         if(self.bool_inTopicSection):
             self.int_topicSectionCounter-=1
-            if(not self.int_topicSectionCounter):
+            if(self.int_topicSectionCounter==0):
                 self.bool_inTopicSection=False
                 self.arr_topic.append(self.str_topic)
                 self.str_topic=''
@@ -259,9 +259,9 @@ class WebParser(HTMLParser):
 
     def toDictionary(self):
         dict_data = {
-            'topic':self.arr_topic[0],
+            'topic':'',
             'initializeDate':self.arr_date[0],
-            'timeStamp':self.arr_date[-1],
+            'timeStamp':self.arr_date[0],
             'content':self.arr_postData
         }
 

@@ -179,22 +179,6 @@ class Crawler:
             self.writeLog('=========crawThreadData=========')
 
         pass
-    
-    def crawThreadData(self,str_threadCode):
-        if(self.bool_debugMode):
-            self.writeLog('=========crawThreadData=========')
-        str_rawHTMLData = self.getRawPage(str_threadCode)
-        self.c_webParser.feed(str_rawHTMLData)
-        dict_threadData = self.c_webParser.toDictionary()
-        self.dict_groupData[str_threadCode] = dict_threadData
-        if(self.bool_debugMode):
-            self.writeLog('Thread Code: ')
-            self.writeLog(str_threadCode)
-            self.writeLog('Dictionary Thread Data: ')
-            self.writeLog(dict_threadData)
-                
-        if(self.bool_debugMode):
-            self.writeLog('=========crawThreadData=========')
 
     def exportJsonFile(self,str_filePath):
         # if(not os.path.exists('data/')):

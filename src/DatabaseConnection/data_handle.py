@@ -33,7 +33,7 @@ class DataHandle :
         })
         filter = {'thread_code': dict_data['thread_code']}
         self.collection.update_one(filter,{'$set':insert_data},upsert=True)
-        self.collection.up
+        # self.collection.up
         pass
 
     def insertAll(self,dict_data):

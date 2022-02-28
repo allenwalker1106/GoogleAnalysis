@@ -1,0 +1,46 @@
+.thread_header{
+    font-size: large;
+    font-weight: bold;
+    color:white;
+}
+
+.comment-content{
+    color:white;
+    margin-top: 15px;
+    margin-left: 20px;
+    background-color: rgba(63,85,101,0.5);
+    border-radius: 16px;
+    padding: 15px;
+    max-height: 100px;
+    overflow:hidden;
+    -o-transition: 1s;
+    -moz-transition: 1s;
+}
+
+.comment-content:hover{
+    background-color: rgba(63,85,101,1);
+    max-height:1000px;
+    
+}
+
+
+
+
+.comments-container{
+    float: left;
+    width: 750px;
+    min-height: 300px;
+    /* height: 400px; */    
+    max-height: 400px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 30px 10px;
+    /* text-align: center; */
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 3px 3px 0px rgba(70,70,70, 0.4);
+    background-color: rgb(32, 43, 51);
+    overflow:scroll;
+    overflow-x: hidden;
+  }
+  
